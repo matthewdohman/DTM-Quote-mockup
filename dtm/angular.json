@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "quote",
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "projects": {
+    "quote": {
+      "projectType": "application",
+      "root": "apps/quote",
+      "sourceRoot": "apps/quote/src",
+      "prefix": "dtm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/quote",
+            "index": "apps/quote/src/index.html",
+            "main": "apps/quote/src/main.ts",
+            "polyfills": "apps/quote/src/polyfills.ts",
+            "tsConfig": "apps/quote/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/quote/src/favicon.ico", "apps/quote/src/assets"],
+            "styles": ["apps/quote/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/quote/src/environments/environment.ts",
+                  "with": "apps/quote/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "quote:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "quote:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "quote:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/quote/src/**/*.ts",
+              "apps/quote/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/quote"],
+          "options": {
+            "jestConfig": "apps/quote/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "quote-e2e": {
+      "root": "apps/quote-e2e",
+      "sourceRoot": "apps/quote-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/quote-e2e/cypress.json",
+            "tsConfig": "apps/quote-e2e/tsconfig.e2e.json",
+            "devServerTarget": "quote:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "quote:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/quote-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    }
+  }
+}
