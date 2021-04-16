@@ -57,7 +57,7 @@ class AppComponent {
         this.title = 'quote';
     }
     ngOnInit() {
-        let scriptUrl = '/assets/js/scripts-3.js';
+        let scriptUrl = '/DTM-Quote-mockup/assets/js/scripts-3.js';
         let node = document.createElement('script');
         node.src = scriptUrl;
         node.type = 'text/javascript';
