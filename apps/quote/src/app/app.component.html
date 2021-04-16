@@ -1,111 +1,366 @@
-<header class="flex">
-  <img
-    alt="Nx logo"
-    width="75"
-    src="https://nx.dev/assets/images/nx-logo-white.svg"
-  />
-  <h1>Welcome to {{ title }}!</h1>
-</header>
-<main>
-  <h2>Resources &amp; Tools</h2>
-  <p>Thank you for using and showing some ♥ for Nx.</p>
-  <div class="flex github-star-container">
-    <a
-      href="https://github.com/nrwl/nx"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      If you like Nx, please give it a star:
-      <div class="github-star-badge">
-        <svg
-          class="material-icons"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-        >
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path
-            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-          />
-        </svg>
-        Star
+<!-- Preloader -->
+<div id="preloader">
+  <div data-loader="circle-side"></div>
+</div>
+<!-- Preloader End -->
+
+<!-- Page -->
+<div id="page">
+  <!-- Header -->
+  <header class="main-header sticky">
+    <a href="#menu" class="btn-mobile">
+      <div class="hamburger hamburger--spin" id="hamburger">
+        <div class="hamburger-box">
+          <div class="hamburger-inner"></div>
+        </div>
       </div>
     </a>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-6">
+          <div id="logo">
+            <h1><a href="index.html" title="Costy">DTM Quote Prototype</a></h1>
+          </div>
+        </div>
+        <div class="col-lg-9 col-6">
+          <ul id="menuIcons">
+            <li><a href="#"><i class="icon icon-support"></i></a></li>
+            <li><a href="#"><i class="icon icon-shopping-cart2"></i></a></li>
+          </ul>
+          <!-- Menu -->
+          <nav id="menu" class="main-menu">
+            
+          </nav>
+          <!-- Menu End -->
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Header End -->
+
+  <!-- Sub Header -->
+  <div class="sub-header">
+    <div class="container">
+      <h1>Drop Test Media - Knife Construction Calculator</h1>
+    </div>
   </div>
-  <p>Here are some links to help you get started.</p>
-  <ul class="resources">
-    <li class="col-span-2">
-      <a class="resource flex" href="https://nxplaybook.com/p/nx-workspaces">
-        Nx video course
-      </a>
-    </li>
-    <li class="col-span-2">
-      <a
-        class="resource flex"
-        href="https://nx.dev/latest/angular/getting-started/getting-started"
-      >
-        Nx video tutorial
-      </a>
-    </li>
-    <li class="col-span-2">
-      <a
-        class="resource flex"
-        href="https://nx.dev/latest/angular/tutorial/01-create-application"
-      >
-        Interactive tutorial
-      </a>
-    </li>
-    <li class="col-span-2">
-      <a class="resource flex" href="https://nx.app/">
-        <svg
-          width="36"
-          height="36"
-          viewBox="0 0 120 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M120 15V30C103.44 30 90 43.44 90 60C90 76.56 76.56 90 60 90C43.44 90 30 103.44 30 120H15C6.72 120 0 113.28 0 105V15C0 6.72 6.72 0 15 0H105C113.28 0 120 6.72 120 15Z"
-            fill="#0E2039"
-          />
-          <path
-            d="M120 30V105C120 113.28 113.28 120 105 120H30C30 103.44 43.44 90 60 90C76.56 90 90 76.56 90 60C90 43.44 103.44 30 120 30Z"
-            fill="white"
-          />
-        </svg>
-        <span class="gutter-left">Nx Cloud</span>
-      </a>
-    </li>
-  </ul>
-  <h2>Next Steps</h2>
-  <p>Here are some things you can do with Nx.</p>
-  <details open>
-    <summary>Add UI library</summary>
-    <pre>
-# Generate UI lib
-ng g @nrwl/angular:lib ui
+  <!-- Sub Header End -->
 
-# Add a component
-ng g @nrwl/angular:component xyz --project ui</pre
-    >
-  </details>
-  <details>
-    <summary>View dependency graph</summary>
-    <pre>nx dep-graph</pre>
-  </details>
-  <details>
-    <summary>Run affected commands</summary>
-    <pre>
-# see what's been affected by changes
-ng affected:dep-graph
+  <main>
+    <div class="order">
+      <div class="container">
+        <!-- Form -->
+        <form method="POST" id="orderForm" name="orderForm">
+          <div class="row">
+            <div class="col-lg-8" id="mainContent">
+              <!-- Calculator Area -->
+              <div id="optionGroup1" class="row option-box">
+                <div class="option-box-header">
+                  <h3>Knife Type</h3>
+                  <p>
+                    Select The Type of Knife you Wish to Commission                    
+                  </p>
+                </div>
+                <div class="col-12">
+                  <input type="hidden" id="option1Title" name="option1Title" value="Select" />
+                  <input type="hidden" id="option1Price" name="option1Price" value="0" />
+                  <select id="optionGroup1List" class="wide price-list" name="optionGroup1List">
+                    <option value="0">Select</option>
+                    <option value="15.00">Stock Removal (Damascus is not available in Steel Type)</option>
+                    <option value="25.00">Forged</option>
+                    <option value="300.00">Custom</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row option-box">
+                <div class="option-box-header">
+                  <h3>Length of the Blade</h3>
+                  <p></p>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <input id="optionGroup1RangeSlider" type="text" value="" />
+                    </div>
+                    <div class="col-md-2">
+                      <input id="optionGroup1Qty" type="text" class="qty-input form-control" name="optionGroup1Qty" value="0" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="optionGroup2" class="row option-box">
+                <div class="option-box-header">
+                  <h3>Knife Style</h3>
+                  <p>
+                    Select The Style of Knife you Wish to Commission                    
+                  </p>
+                </div>
+                <div class="col-12">
+                  <input type="hidden" id="option2Title" name="option2Title" value="Select" />
+                  <input type="hidden" id="option2Price" name="option2Price" value="0" />
+                  <select id="optionGroup2List" class="wide price-list" name="optionGroup2List">
+                    <option value="0">Select</option>
+                    <option value="15.00">Specialist</option>
+                    <option value="25.00">Chef</option>
+                    <option value="25.00">Santoku</option>
+                    <option value="25.00">EDK (Every Day Carry)</option>
+                    <option value="25.00">Hunter</option>
+                    <option value="25.00">Pathfinder</option>
+                    <option value="25.00">Custom</option>
+                  </select>
+                </div>
+              </div>
+              <div id="optionGroup3" class="row option-box">
+                <div class="option-box-header">
+                  <h3>Steel Type</h3>
+                  <p>
+                    Select The Type of Steel that should be used in the creation of your knife.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <input type="hidden" id="option3Title" name="option3Title" value="Select" />
+                  <input type="hidden" id="option3Price" name="option3Price" value="0" />
+                  <select id="optionGroup3List" class="wide price-list" name="optionGroup3List">
+                    <option value="0">Select</option>
+                    <option value="20.00">1080</option>
+                    <option value="20.00">1084</option>
+                    <option value="20.00">1095</option>
+                    <option value="20.00">52100</option>
+                    <option value="20.00">80CRV2 SATIN FINISH</option>
+                    <option value="22.00">80CRV2 STONE WASHED</option>
+                    <option value="45.00">Damascus</option>
+                    <option value="20.00">O1 SATIN FINISH</option>
+                    <option value="22.00">O1 STONEWASHED</option>
+                  </select>
+                </div>
+              </div>
+              <div id="optionGroup4" class="row option-box">
+                <div class="option-box-header">
+                  <h3>Handle Material</h3>
+                  <p>
+                    Select The Type of Handle Material that should be used in the creation of your knife's handle.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <input type="hidden" id="option4Title" name="option4Title" value="Select" />
+                  <input type="hidden" id="option4Price" name="option4Price" value="0" />
+                  <select id="optionGroup4List" class="wide price-list" name="optionGroup4List">
+                    <option value="0">Select</option>
+                    <option value="10.00">Dymalux</option>
+                    <option value="10.00">3/8 G10</option>
+                    <option value="10.00">1/4 G10</option>
+                    <option value="35.00">Ironwood</option>
+                    <option value="10.00">Micarta</option>
+                    <option value="20.00">Yuma</option>
+                    <option value="65.00">Ironwood Bur</option>
+                    <option value="5.00">Black Micarta</option>
+                    <option value="5.00">Tan Micarta</option>
+                    <option value="00.00">None (EDK)</option>
+                    <option value="35.00">None Skeleton</option>
+                    <option value="50.00">Custom</option>
+                  </select>
+                </div>
+              </div>
+              <div id="optionGroup5" class="row option-box">
+                <div class="option-box-header">
+                  <h3>Sheath Type</h3>
+                  <p>
+                    Select The Type of Sheath your knife should be held in.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <input type="hidden" id="option5Title" name="option5Title" value="Select" />
+                  <input type="hidden" id="option5Price" name="option5Price" value="0" />
+                  <select id="optionGroup5List" class="wide price-list" name="optionGroup5List">
+                    <option value="0">Select</option>
+                    <option value="10.00">Kydex</option>
+                    <option value="50.00">Leather</option>
+                    <option value="0.00">None</option>
+                  </select>
+                </div>
+              </div>
+              <div id="optionGroup6" class="row option-box">
+                <div class="option-box-header">
+                  <h3>Leather Tooling</h3>
+                  <p>
+                    Select If your Sheath should have any Custom Leather Design Work.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <input type="hidden" id="option6Title" name="option6Title" value="Select" />
+                  <input type="hidden" id="option6Price" name="option6Price" value="0" />
+                  <select id="optionGroup6List" class="wide price-list" name="optionGroup6List">
+                    <option value="0">Select</option>
+                    <option value="40.00">Yes</option>
+                    <option value="0.00">No</option>
+                  </select>
+                </div>
+              </div>
+              <div id="optionGroup7" class="row option-box">
+                <div class="option-box-header">
+                  <h3>Pins</h3>
+                  <p>
+                    Select The type of Pin that should be used on your Sheath.
+                  </p>
+                </div>
+                <div class="col-12">
+                  <input type="hidden" id="option7Title" name="option7Title" value="Select" />
+                  <input type="hidden" id="option7Price" name="option7Price" value="0" />
+                  <select id="optionGroup7List" class="wide price-list" name="optionGroup7List">
+                    <option value="0">Select</option>
+                    <option value="5.00">5 - Brass (Pin, 1/8", 1/4")</option>
+                    <option value="10.00">10 - Brass (Pin, 1/8", 1/4")</option>
+                    <option value="3.75">5 -Aluminum (Pin, 1/8")</option>
+                    <option value="7.50">10 -Aluminum (Pin, 1/8")</option>
+                    <option value="7.50">5 - Copper (Corby Bolts)</option>
+                    <option value="15.00">10 - Copper (Corby Bolts)</option>
+                  </select>
+                </div>
+              </div>
 
-# run tests for current changes
-ng affected:test
 
-# run e2e tests for current changes
-ng affected:e2e
-</pre
-    >
-  </details>
-</main>
+
+              <!-- Calculator Area End -->
+              <!-- Personal Details -->
+              <div id="personalDetails" class="row contact-box">
+                <div class="contact-box-header">
+                  <h3>Contact Details</h3>
+                  <p>Please give VALID email to check the result.</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <label for="userName">Full Name</label>
+                    <input id="userName" class="form-control" name="username" type="text" data-parsley-pattern="^[a-zA-Z\s.]+$" required />
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" class="form-control" name="email" type="email" required />
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <label for="phone">Phone e.g.: +12345</label>
+                    <input id="phone" class="form-control" name="phone" type="text" data-parsley-pattern="^\+{1}[0-9]+$" />
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <input id="address" class="form-control" name="address" type="text" data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="inputMessage">Message</label>
+                    <textarea class="form-control" id="inputMessage" name="message" data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
+                  </div>
+                </div>
+              </div>
+              <!-- Personal Details End -->
+            </div>
+            <div class="col-lg-4" id="sidebar">
+              <!-- Order Container -->
+              <div id="orderContainer" class="theiaStickySidebar">
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="hidden" id="subSum1" name="subSum1" value="0" />
+                    <input type="hidden" id="subSum2" name="subSum2" value="0" />
+                    <input type="hidden" id="subSum3" name="subSum3" value="0" />
+                    <input type="hidden" id="totalDue" name="totalDue" value="0" />
+                    <h3>Order Summary</h3>
+                    <ul id="orderSumList">
+                      <li id="optionGroup1Sum"></li>
+                      <li id="optionGroup2Sum"></li>
+                      <li id="optionGroup3Sum"></li>
+                      <li id="extraOption1Sum"></li>
+                      <li id="extraOption2Sum"></li>
+                    </ul>
+                    <div class="row total-container">
+                      <div class="col-6 p-0">
+                        <input type="text" id="totalTitle" class="summaryInput" name="totallabel" value="" disabled />
+                      </div>
+                      <div class="col-6 p-0">
+                        <input type="text" id="total" class="summaryInput" name="total" value="0" data-parsley-errors-container="#totalError" data-parsley-empty-order=""
+                          disabled />
+                      </div>
+                    </div>
+                    <div id="totalError"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="checkbox" id="cbx" class="inp-cbx" name="terms" value="yes" required />
+                      <label class="cbx terms" for="cbx">
+                        <span>
+                          <svg width="12px" height="10px" viewbox="0 0 12 10">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                          </svg>
+                        </span>
+                        <span>Accept<a href="pdf/terms.pdf" class="terms-link" target="_blank">Terms</a>.</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <button type="submit" name="submit" class="btn-form-func">
+                      <span class="btn-form-func-content">SUBMIT</span>
+                      <span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <button type="button" name="reset" id="resetBtn" class="btn-form-func btn-form-func-alt-color">
+                      <span class="btn-form-func-content">RESET</span>
+                      <span class="icon"><i class="fa fa-times" aria-hidden="true"></i></span>
+                    </button>
+                  </div>
+                </div>
+                <div class="row footer">
+                  <div class="col-lg-12 text-center">
+                    <small>&copy; 2020 Your Company.</small>
+                  </div>
+                </div>
+              </div>
+              <!-- Order Container End -->
+            </div>
+          </div>
+        </form>
+        <!-- Form End -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="main-footer">
+  </footer>
+  <!-- Footer End -->
+</div>
+<!-- Page End -->
+
+<!-- Modal Popup Alert 1 -->
+<div class="modal" id="alertModal1" tabindex="-1" role="dialog" aria-labelledby="alertModal1Title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="alertModal1Title">Alert</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="icon icon-cross"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Please select an item from <span class="alert-text-strong">Option Group 1</span> dropdown in
+          order to calculate with the quantity!</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-modal" data-dismiss="modal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Back to top button -->
+<div id="toTop"><i class="fa fa-chevron-up"></i></div>
