@@ -270,7 +270,7 @@
 
 		// calculate the summariy
 		selectedItem1Title = $('#optionGroup1List option:selected').text();
-		$('#optionGroup1Sum').html(selectedItem1Title + ' x 1<span class="price">' + (subSum1 * 1).toFixed(2) + '</span>' + '<br />PA Tax x 1 @ 6%<span class="price">' + (subSum1 * 0.6).toFixed(2) + '</span>')
+		$('#optionGroup1Sum').html(selectedItem1Title + ' x 1<span class="price">' + (subSum1 * 1).toFixed(2) + '</span>' + '<br />PA Tax x 1 @ 6%<span class="price">' + (subSum1 * 0.06).toFixed(2) + '</span>')
 
 		subSum1 += (subSum1 * 0.06);
 
